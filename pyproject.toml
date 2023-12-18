@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "university-esports-db"
+version = "0.1.0"
+description = ""
+authors = ["Phos Mankelow <joshua@mankelow.org>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+sqlmodel = "^0.0.14"
+fastapi = "^0.105.0"
+uvicorn = {version = "^0.24.0.post1", extras = ["standard"]}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
