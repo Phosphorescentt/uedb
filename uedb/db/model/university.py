@@ -7,7 +7,7 @@ if TYPE_CHECKING:
 
 
 class UniversityBase(SQLModel):
-    slug: str = Field(default=None)
+    slug: str = Field(default=None, unique=True)
     name: str = Field(default=None)
 
 
@@ -15,9 +15,6 @@ class University(UniversityBase, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
 
     teams: List["Team"] = Relationship(back_populates="university")
-
-    def get_teams(self) -> List["Team"]:
-        return self.teams
 
     @staticmethod
     def search(name: str, session: Session) -> List["University"]:
