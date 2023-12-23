@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import List
 
 from db.model.university import (
     University,
@@ -13,7 +13,6 @@ from sqlmodel import Session, select
 
 class UniversitySearch(BaseModel):
     name: str
-    use_external: Optional[bool]
 
 
 router = APIRouter()
@@ -22,9 +21,7 @@ router = APIRouter()
 @router.post("/universities/search/", response_model=List[UniversityRead])
 def search_university(query: UniversitySearch, session: Session = Depends(get_session)):
     search = UniversitySearch.model_validate(query)
-    search_response = University.search(
-        search.name, session, search.use_external if search.use_external else False
-    )
+    search_response = University.search(search.name, session)
     return search_response
 
 

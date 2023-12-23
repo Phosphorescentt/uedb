@@ -17,17 +17,12 @@ class University(UniversityBase, table=True):
     teams: List["Team"] = Relationship(back_populates="university")
 
     @staticmethod
-    def search(
-        name: str, session: Session, use_external: bool = False
-    ) -> List["University"]:
-        if not use_external:
-            universities_matching_search = session.exec(
-                select(University).where(University.name.contains(name))  # type: ignore
-            ).all()
+    def search(name: str, session: Session) -> List["University"]:
+        universities_matching_search = session.exec(
+            select(University).where(University.name.contains(name))  # type: ignore
+        ).all()
 
-            return list(universities_matching_search)
-        else:
-            return []
+        return list(universities_matching_search)
 
 
 class UniversityCreate(UniversityBase):
