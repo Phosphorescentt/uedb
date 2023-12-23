@@ -14,3 +14,15 @@ class ScrapingUniversityNotFoundError(ScrapingNotFoundError):
     """Raised if a university cannot be found via scraping"""
 
     ...
+
+
+class IngesterNotFoundError(UEDBNotFoundError):
+    """Raised if we cannot find an ingester for the URL provided.
+
+    In theory, this should never get raised as this should get caught during
+    validation, but better safe than sorry!"""
+
+
+class TournamentOrganiserNotFound(UEDBNotFoundError):
+    """Raise if we don't recognise the URL that the user has submitted for ingestion
+    as a URL belonging to one of the tournament organisers."""
