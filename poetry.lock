@@ -427,6 +427,17 @@ files = [
 ]
 
 [[package]]
+name = "result"
+version = "0.15.0"
+description = "A Rust-like result type for Python"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "result-0.15.0-py3-none-any.whl", hash = "sha256:5478238faeceb000a31b3904fdac9edbc3bcb471ac269c9ca059b0bf5a14fbb7"},
+    {file = "result-0.15.0.tar.gz", hash = "sha256:efd53ffc042252da3ee42d75b2e351cee396d0d3b9a31b366d7c9f93a451af9a"},
+]
+
+[[package]]
 name = "sniffio"
 version = "1.3.0"
 description = "Sniff out which async library your code is running under"
@@ -807,4 +818,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "66e0c83077b94f874b9acaa75d6cf34cacb510b8934af49136df4cd24d88f55c"
+content-hash = "5a4baffe717e122992962971e3b2f48ec9f3f907679b10c8fac6da7d002035f9"

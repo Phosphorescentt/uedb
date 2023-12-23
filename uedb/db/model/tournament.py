@@ -1,6 +1,8 @@
+from typing import TYPE_CHECKING, List, Optional
+
+from sqlmodel import Field, Relationship, SQLModel
+
 from uedb.enums import TournamentOrganiser
-from typing import Optional, List, TYPE_CHECKING
-from sqlmodel import SQLModel, Field, Relationship
 
 if TYPE_CHECKING:
     from db.model.team import Team

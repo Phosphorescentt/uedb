@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "university-esports-db"
+name = "uedb"
 version = "0.1.0"
 description = ""
 authors = ["Phos Mankelow <joshua@mankelow.org>"]

@@ -1,7 +1,9 @@
 from typing import Optional
-from sqlmodel import Field, SQLModel, Relationship
-from db.model.university import University
+
 from db.model.tournament import Tournament
+from db.model.university import University
+from sqlmodel import Field, Relationship, SQLModel
+
 from uedb.enums import Game
 
 
