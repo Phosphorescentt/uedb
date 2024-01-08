@@ -1,7 +1,9 @@
 import requests
-from result import Result, Err
 from db.model.university import University
+from result import Err, Ok, Result
+
 from uedb.errors import APINotFoundError
+
 from .protos import Ingester
 
 
@@ -15,7 +17,13 @@ class NUELIngester(Ingester):
         url: str,
     ) -> Result[University, APINotFoundError]:
         university_name = url.split("/")[-1]
-        university_raw = requests.get(self.INSTITUTION_ROOT.format(university_name))
-        print(university_raw.json())
+        university_response = requests.get(
+            self.INSTITUTION_ROOT.format(university_name)
+        )
+        university_raw = university_response.json()
+
+        print(university_raw)
+        if university_raw.get("status") == "success":
+            return Ok(university_raw.get("returnData"))
 
         return Err(APINotFoundError())
