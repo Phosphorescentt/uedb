@@ -16,6 +16,12 @@ class ScrapingUniversityNotFoundError(ScrapingNotFoundError):
     ...
 
 
+class APINotFoundError(UEDBNotFoundError):
+    """Raised if an API call can't find the requested resource."""
+
+    ...
+
+
 class IngesterNotFoundError(UEDBNotFoundError):
     """Raised if we cannot find an ingester for the URL provided.
 

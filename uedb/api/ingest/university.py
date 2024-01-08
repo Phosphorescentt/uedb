@@ -8,7 +8,7 @@ from pydantic import BaseModel, Field, field_validator
 
 class UniversityIngest(BaseModel):
     url: str = Field(
-        pattern="(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)"
+        pattern="(http(s)?:\\/\\/.)?(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)"
     )
 
     @field_validator("url", mode="after")
@@ -35,9 +35,9 @@ def ingest_university(query: UniversityIngest):
     NUEL or NSE websites."""
     ingester = get_ingester_from_url(query.url)
     if ingester:
-        university = ingester.get_university_by_url()
+        university = ingester.get_university_by_url(query.url)
         if is_ok(university):
-            return university
+            return university.ok_value
         elif is_err(university):
             return f"Unable to find university for URL {query.url}"
     else:

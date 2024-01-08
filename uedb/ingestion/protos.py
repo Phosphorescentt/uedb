@@ -6,5 +6,5 @@ from db.model.university import University
 
 
 class Ingester(Protocol):
-    def get_university_by_url(self) -> Result[University, UEDBNotFoundError]:
+    def get_university_by_url(self, url: str) -> Result[University, UEDBNotFoundError]:
         ...
