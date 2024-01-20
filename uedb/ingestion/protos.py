@@ -1,4 +1,4 @@
-from uedb.errors import UEDBNotFoundError
+from core.errors import UEDBNotFoundError
 from result import Result
 from typing import Protocol
 

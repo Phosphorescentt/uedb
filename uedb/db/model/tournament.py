@@ -2,7 +2,7 @@ from typing import TYPE_CHECKING, List, Optional
 
 from sqlmodel import Field, Relationship, SQLModel
 
-from uedb.enums import TournamentOrganiser
+from core.enums import TournamentOrganiser
 
 if TYPE_CHECKING:
     from db.model.team import Team

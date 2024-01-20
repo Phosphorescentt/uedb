@@ -3,7 +3,7 @@ from typing import TYPE_CHECKING, List, Optional
 from sqlmodel import Field, Relationship, Session, SQLModel, select
 
 from db.model.grouped_university import GroupedUniversity
-from uedb.enums import TournamentOrganiser
+from core.enums import TournamentOrganiser
 
 
 if TYPE_CHECKING:

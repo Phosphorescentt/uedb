@@ -2,7 +2,7 @@ import requests
 from db.model.university import University
 from result import Err, Ok, Result
 
-from uedb.errors import APINotFoundError
+from core.errors import APINotFoundError
 
 from .protos import Ingester
 

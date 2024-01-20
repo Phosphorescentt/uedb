@@ -1,7 +1,7 @@
 from db.model.university import University
 from result import Result, Err
 
-from uedb.errors import ScrapingUniversityNotFoundError
+from core.errors import ScrapingUniversityNotFoundError
 
 from .protos import Ingester
 

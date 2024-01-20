@@ -1,6 +1,6 @@
 from result import is_err, is_ok
-from uedb.errors import IngesterNotFoundError, TournamentOrganiserNotFound
-from uedb.enums import TournamentOrganiser
+from core.errors import IngesterNotFoundError, TournamentOrganiserNotFound
+from core.enums import TournamentOrganiser
 from fastapi import APIRouter
 from ingestion.utils import get_ingester_from_url
 from pydantic import BaseModel, Field, field_validator
