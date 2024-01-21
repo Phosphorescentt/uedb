@@ -1,7 +1,6 @@
-from db.model.university import University
-from result import Result, Err
-
 from core.errors import ScrapingUniversityNotFoundError
+from db.model.university import University
+from result import Err, Result
 
 from .protos import Ingester
 

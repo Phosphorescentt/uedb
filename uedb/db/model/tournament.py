@@ -1,8 +1,7 @@
 from typing import TYPE_CHECKING, List, Optional
 
-from sqlmodel import Field, Relationship, SQLModel
-
 from core.enums import TournamentOrganiser
+from sqlmodel import Field, Relationship, SQLModel
 
 if TYPE_CHECKING:
     from db.model.team import Team

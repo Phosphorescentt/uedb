@@ -1,6 +1,6 @@
-from typing import List, Optional, TYPE_CHECKING
+from typing import TYPE_CHECKING, List, Optional
 
-from sqlmodel import Field, Session, SQLModel, select, Relationship
+from sqlmodel import Field, Relationship, Session, SQLModel, select
 
 if TYPE_CHECKING:
     from db.model.university import University

@@ -1,9 +1,6 @@
 from typing import List
 
-from db.model.university import (
-    University,
-    UniversityRead,
-)
+from db.model.university import University, UniversityRead
 from db.utils import get_session
 from fastapi import APIRouter, Depends
 from pydantic import BaseModel

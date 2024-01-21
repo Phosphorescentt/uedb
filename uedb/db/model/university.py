@@ -1,10 +1,8 @@
 from typing import TYPE_CHECKING, List, Optional
 
-from sqlmodel import Field, Relationship, Session, SQLModel, select
-
-from db.model.grouped_university import GroupedUniversity
 from core.enums import TournamentOrganiser
-
+from db.model.grouped_university import GroupedUniversity
+from sqlmodel import Field, Relationship, Session, SQLModel, select
 
 if TYPE_CHECKING:
     from db.model.team import Team

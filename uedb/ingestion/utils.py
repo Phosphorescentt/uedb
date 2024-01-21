@@ -1,15 +1,15 @@
-from typing import Optional
-
+from core.errors import IngesterNotFoundError
 from ingestion.nse import NSEIngester
 from ingestion.nuel import NUELIngester
 from ingestion.protos import Ingester
+from result import Err, Ok, Result
 
 
-def get_ingester_from_url(url: str) -> Optional[Ingester]:
+def get_ingester_from_url(url: str) -> Result[Ingester, IngesterNotFoundError]:
     urll = url.lower()
     if "nuel" in urll:
-        return NUELIngester()
+        return Ok(NUELIngester())
     elif "nse" in urll:
-        return NSEIngester()
+        return Ok(NSEIngester())
 
-    return None
+    return Err(IngesterNotFoundError())

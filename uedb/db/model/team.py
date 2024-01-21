@@ -1,10 +1,9 @@
 from typing import Optional
 
+from core.enums import Game
 from db.model.tournament import Tournament
 from db.model.university import University
 from sqlmodel import Field, Relationship, SQLModel
-
-from core.enums import Game
 
 
 class TeamBase(SQLModel):

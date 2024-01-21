@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from . import university
-from . import grouped_university
+
+from . import grouped_university, university
 
 routers = [university.router, grouped_university.router]
 

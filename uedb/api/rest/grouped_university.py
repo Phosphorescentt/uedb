@@ -1,10 +1,8 @@
 from typing import List
 
-from db.model.grouped_university import (
-    GroupedUniversity,
-    GroupedUniversityCreate,
-    GroupedUniversityRead,
-)
+from db.model.grouped_university import (GroupedUniversity,
+                                         GroupedUniversityCreate,
+                                         GroupedUniversityRead)
 from db.utils import get_session
 from fastapi import APIRouter, Depends
 from sqlmodel import Session, select

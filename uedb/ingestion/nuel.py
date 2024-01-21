@@ -1,8 +1,7 @@
 import requests
+from core.errors import APINotFoundError
 from db.model.university import University
 from result import Err, Ok, Result
-
-from core.errors import APINotFoundError
 
 from .protos import Ingester
 
@@ -12,13 +11,13 @@ class NUELIngester(Ingester):
         "https://api.thenuel.com/api/v001/showcase/university-esports/institution/{}"
     )
 
+    @staticmethod
     def get_university_by_url(
-        self,
         url: str,
     ) -> Result[University, APINotFoundError]:
         university_name = url.split("/")[-1]
         university_response = requests.get(
-            self.INSTITUTION_ROOT.format(university_name)
+            NUELIngester.INSTITUTION_ROOT.format(university_name)
         )
         university_raw = university_response.json()
 
