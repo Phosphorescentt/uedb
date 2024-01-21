@@ -2,7 +2,7 @@ from core.errors import ScrapingUniversityNotFoundError
 from db.model.university import University
 from result import Err, Result
 
-from .protos import Ingester
+from .protocols import Ingester
 
 
 class NSEIngester(Ingester):

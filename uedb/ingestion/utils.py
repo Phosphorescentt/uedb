@@ -1,7 +1,7 @@
 from core.errors import IngesterNotFoundError
 from ingestion.nse import NSEIngester
 from ingestion.nuel import NUELIngester
-from ingestion.protos import Ingester
+from ingestion.protocols import Ingester
 from result import Err, Ok, Result
 
 

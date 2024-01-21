@@ -1,6 +1,5 @@
 from typing import Protocol
 
-from core.errors import UEDBNotFoundError
 from db.model.university import University
 from result import Result
 

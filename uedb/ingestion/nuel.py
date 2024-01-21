@@ -9,7 +9,7 @@ from db.utils import get_session_context_manager
 from fastapi import Depends
 from result import Err, Ok, Result
 
-from .protos import Ingester
+from .protocols import Ingester
 
 
 class NUELIngester(Ingester):
