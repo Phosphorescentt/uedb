@@ -34,9 +34,15 @@ class University(UniversityBase, table=True):
         return list(universities_matching_search)
 
 
+class UniversityRead(UniversityBase):
+    id: int
+
+
 class UniversityCreate(UniversityBase):
     ...
 
 
-class UniversityRead(UniversityBase):
-    id: int
+class UniversityUpdate(SQLModel):
+    url: Optional[str] = None
+    name: Optional[str] = None
+    grouped_university_id: Optional[int] = None
