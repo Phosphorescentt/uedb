@@ -6,8 +6,8 @@ from .protos import Ingester
 
 
 class NSEIngester(Ingester):
+    @staticmethod
     def get_university_by_url(
-        self,
         url: str,
     ) -> Result[University, ScrapingUniversityNotFoundError]:
         return Err(ScrapingUniversityNotFoundError())

@@ -28,7 +28,23 @@ class IngesterNotFoundError(UEDBNotFoundError):
     In theory, this should never get raised as this should get caught during
     validation, but better safe than sorry!"""
 
+    ...
+
 
 class TournamentOrganiserNotFound(UEDBNotFoundError):
     """Raise if we don't recognise the URL that the user has submitted for ingestion
     as a URL belonging to one of the tournament organisers."""
+
+    ...
+
+
+class ParsingError(Exception):
+    """Raised if we are unable to parse a json returned from an API."""
+
+    ...
+
+
+class UniversityParsingError(ParsingError):
+    """Raised if we are unable to parse a json returned from an API into the university datamodel."""
+
+    ...

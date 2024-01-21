@@ -1,10 +1,13 @@
 from typing import Optional
 
 from core.enums import TournamentOrganiser
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 from ingestion.utils import get_ingester_from_url
 from pydantic import BaseModel, Field, field_validator
-from result import Err, Ok, Result, is_err, is_ok
+from result import Err, is_err, is_ok
+from sqlmodel import Session
+
+from uedb.db.utils import get_session
 
 
 class UniversityIngest(BaseModel):
@@ -31,12 +34,12 @@ router = APIRouter(prefix="/universities")
 
 
 @router.post("")
-def ingest_university(query: UniversityIngest):
+def ingest_university(
+    query: UniversityIngest,
+    session: Session = Depends(get_session),
+):
     """Ingest a university into the database based on their homepage URL on either the
     NUEL or NSE websites."""
-    if isinstance(query.url, Err):
-        return "Tournament oragniser not found for URL."
-
     if not query.url:
         return "Unable to find Tournament organiser."
 
@@ -47,7 +50,14 @@ def ingest_university(query: UniversityIngest):
 
     ingester = ingester_result.ok_value
     university_result = ingester.get_university_by_url(university_url)
-    if is_ok(university_result):
-        return university_result.ok_value
-    elif is_err(university_result):
+    if isinstance(university_result, Err):
         return f"Unable to find university for URL {university_url}"
+
+    if isinstance(university_result, Err):
+        return "Unable to parse json into University db object."
+
+    university = university_result.ok_value
+    session.add(university)
+    session.commit()
+    session.refresh(university)
+    return university

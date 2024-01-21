@@ -7,5 +7,5 @@ from result import Result
 
 class Ingester(Protocol):
     @staticmethod
-    def get_university_by_url(url: str) -> Result[University, UEDBNotFoundError]:
+    def get_university_by_url(url: str) -> Result[University, Exception]:
         ...

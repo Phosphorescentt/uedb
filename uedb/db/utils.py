@@ -1,3 +1,5 @@
+from contextlib import contextmanager
+
 from sqlmodel import Session, SQLModel, create_engine
 
 # TODO: Load these from config
@@ -13,5 +15,11 @@ def create_db_and_tables():
 
 
 def get_session():
+    with Session(engine) as session:
+        yield session
+
+
+@contextmanager
+def get_session_context_manager():
     with Session(engine) as session:
         yield session

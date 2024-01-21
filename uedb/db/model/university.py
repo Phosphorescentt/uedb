@@ -11,7 +11,9 @@ if TYPE_CHECKING:
 class UniversityBase(SQLModel):
     url: str = Field(nullable=False)
     name: str = Field(default=None)
-    grouped_unviersity_id: int = Field(foreign_key="groupeduniversity.id")
+    grouped_university_id: Optional[int] = Field(
+        foreign_key="groupeduniversity.id", nullable=True
+    )
     tournament_organiser: TournamentOrganiser = Field(nullable=False)
 
 
