@@ -31,6 +31,7 @@ class NUELIngester(Ingester):
                     url=url,
                     name=json["name"],
                     tournament_organiser=TournamentOrganiser.NUEL,
+                    tournament_organiser_identifier=json["_id"],
                     grouped_university_id=grouped_universities[0].id
                     if len(grouped_universities) == 1
                     else None,

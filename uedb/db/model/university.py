@@ -15,6 +15,7 @@ class UniversityBase(SQLModel):
         foreign_key="groupeduniversity.id", nullable=True
     )
     tournament_organiser: TournamentOrganiser = Field(nullable=False)
+    tournament_organiser_identifier: str = Field(nullable=False)
 
 
 class University(UniversityBase, table=True):
