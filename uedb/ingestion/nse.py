@@ -1,13 +1,14 @@
+from result import Err, Result
+
 from core.errors import ScrapingUniversityNotFoundError
 from db.model.university import University
-from result import Err, Result
 
 from .protocols import Ingester
 
-
-class NSEIngester(Ingester):
-    @staticmethod
-    def get_university_by_url(
-        url: str,
-    ) -> Result[University, ScrapingUniversityNotFoundError]:
-        return Err(ScrapingUniversityNotFoundError())
+# Not working on NSE ingestion right now.
+# class NSEIngester(Ingester):
+#     @staticmethod
+#     def get_university_by_url(
+#         url: str,
+#     ) -> Result[University, ScrapingUniversityNotFoundError]:
+#         return Err(ScrapingUniversityNotFoundError())

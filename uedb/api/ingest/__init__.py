@@ -1,8 +1,8 @@
 from fastapi import APIRouter
 
-from . import university
+from . import team, university
 
-routers = [university.router]
+routers = [university.router, team.router]
 
 ingestion_router = APIRouter(prefix="/ingest", tags=["ingestion triggers"])
 

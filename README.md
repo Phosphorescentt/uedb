@@ -1,4 +1,4 @@
-# The **U**niversity **E**sports **D**ata**b**ase (UEDB)
+# The University Esports Database (UEDB)
 
 The University Esports Database is a [SQLModel](https://sqlmodel.tiangolo.com/) and [FastAPI](https://fastapi.tiangolo.com/) application to unify the UK University Esports universities and teams. The idea is that eventually, the application will be able to provide a data and metrics on universities and their performance in tournaments across both UK university tournament organisers ([NUEL](https://thenuel.com/) and [NSE](https://nse.gg/)).
 

@@ -1,7 +1,8 @@
 from typing import TYPE_CHECKING, List, Optional
 
-from core.enums import TournamentOrganiser
 from sqlmodel import Field, Relationship, SQLModel
+
+from core.enums import TournamentOrganiser
 
 if TYPE_CHECKING:
     from db.model.team import Team
@@ -15,4 +16,4 @@ class TournamentBase(SQLModel):
 
 class Tournament(TournamentBase, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
-    teams: List["Team"] = Relationship(back_populates="tournament")
+    # teams: List["Team"] = Relationship(back_populates="tournament")

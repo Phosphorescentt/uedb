@@ -1,8 +1,8 @@
 from fastapi import APIRouter
 
-from . import grouped_university, university
+from . import grouped_university, team, university
 
-routers = [university.router, grouped_university.router]
+routers = [university.router, grouped_university.router, team.router]
 
 rest_router = APIRouter(prefix="/rest", tags=["rest"])
 

@@ -1,5 +1,8 @@
 from typing import List
 
+from fastapi import APIRouter, Depends
+from sqlmodel import Session, select
+
 from db.model.university import (
     University,
     UniversityCreate,
@@ -7,13 +10,11 @@ from db.model.university import (
     UniversityUpdate,
 )
 from db.utils import get_session
-from fastapi import APIRouter, Depends
-from sqlmodel import Session, select
 
 router = APIRouter(prefix="/university")
 
 
-@router.get("/{id}", response_model=UniversityRead)
+@router.get("/id/{id}", response_model=UniversityRead)
 def get_university(id: int, session: Session = Depends(get_session)):
     university = session.get(University, id)
     return university
@@ -53,7 +54,4 @@ def update_university(
     session.add(db_university)
     session.commit()
     session.refresh(db_university)
-    print("=======================")
-    print(db_university)
-    print("=======================")
     return db_university

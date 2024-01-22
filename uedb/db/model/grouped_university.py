@@ -26,9 +26,14 @@ class GroupedUniversity(GroupedUniversityBase, table=True):
         return list(grouped_universities_matching_search)
 
 
+class GroupedUniversityRead(GroupedUniversityBase):
+    id: int
+
+
 class GroupedUniversityCreate(GroupedUniversityBase):
     ...
 
 
-class GroupedUniversityRead(GroupedUniversityBase):
-    id: int
+class GroupedUniversityUpdate(SQLModel):
+    name: Optional[str] = None
+    ...

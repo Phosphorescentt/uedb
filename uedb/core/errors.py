@@ -42,9 +42,3 @@ class ParsingError(Exception):
     """Raised if we are unable to parse a json returned from an API."""
 
     ...
-
-
-class UniversityParsingError(ParsingError):
-    """Raised if we are unable to parse a json returned from an API into the university datamodel."""
-
-    ...
